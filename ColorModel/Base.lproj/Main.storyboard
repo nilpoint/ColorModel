@@ -18,7 +18,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="riY-fp-OFu">
                                 <rect key="frame" x="20" y="28" width="560" height="80"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="anv-ym-s7a"/>
                                 </constraints>
@@ -32,8 +32,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="qW9-5c-iM2">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="qW9-5c-iM2">
                                 <rect key="frame" x="41" y="112" width="541" height="31"/>
+                                <connections>
+                                    <action selector="changeHue:" destination="vXZ-lx-hvc" eventType="valueChanged" id="TDS-0s-Zys"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6e-tc-ajs">
                                 <rect key="frame" x="20" y="149" width="15" height="21"/>
@@ -41,8 +44,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="i4G-uX-CWC">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="i4G-uX-CWC">
                                 <rect key="frame" x="41" y="145" width="541" height="31"/>
+                                <connections>
+                                    <action selector="changeSaturation:" destination="vXZ-lx-hvc" eventType="valueChanged" id="KCl-sL-Rb1"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ts5-Iq-uqV">
                                 <rect key="frame" x="20" y="182" width="15" height="21"/>
@@ -50,8 +56,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DXv-MB-nVa">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DXv-MB-nVa">
                                 <rect key="frame" x="41" y="178" width="541" height="31"/>
+                                <connections>
+                                    <action selector="changeBrightness:" destination="vXZ-lx-hvc" eventType="valueChanged" id="10c-zR-XA4"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -78,6 +87,9 @@
                             <constraint firstItem="i4G-uX-CWC" firstAttribute="leading" secondItem="qW9-5c-iM2" secondAttribute="leading" id="xpM-C1-odI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="colorView" destination="riY-fp-OFu" id="B8b-Tj-qXj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
