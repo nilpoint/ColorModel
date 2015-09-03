@@ -13,6 +13,7 @@
 		52E98EC91B984291008108C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E98EC81B984291008108C0 /* Images.xcassets */; };
 		52E98ECC1B984291008108C0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E98ECA1B984291008108C0 /* LaunchScreen.xib */; };
 		52E98ED81B984291008108C0 /* ColorModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E98ED71B984291008108C0 /* ColorModelTests.swift */; };
+		52E98EE21B984373008108C0 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E98EE11B984373008108C0 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		52E98ED11B984291008108C0 /* ColorModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E98ED61B984291008108C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52E98ED71B984291008108C0 /* ColorModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModelTests.swift; sourceTree = "<group>"; };
+		52E98EE11B984373008108C0 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				52E98EC11B984291008108C0 /* AppDelegate.swift */,
 				52E98EC31B984291008108C0 /* ViewController.swift */,
+				52E98EE11B984373008108C0 /* Color.swift */,
 				52E98EC51B984291008108C0 /* Main.storyboard */,
 				52E98EC81B984291008108C0 /* Images.xcassets */,
 				52E98ECA1B984291008108C0 /* LaunchScreen.xib */,
@@ -214,6 +217,7 @@
 			files = (
 				52E98EC41B984291008108C0 /* ViewController.swift in Sources */,
 				52E98EC21B984291008108C0 /* AppDelegate.swift in Sources */,
+				52E98EE21B984373008108C0 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
