@@ -11,11 +11,15 @@ import UIKit
 class ViewController: UIViewController {
   var colorModel = Color()
   @IBOutlet var colorView: UIView!
+  @IBOutlet var hueLabel: UILabel!
+  @IBOutlet var saturationLabel: UILabel!
+  @IBOutlet var brightnessLabel: UILabel!
   
   @IBAction func changeHue(sender: AnyObject) {
     if let slider = sender as? UISlider {
       colorModel.hue = slider.value
       colorView.backgroundColor = colorModel.color
+      hueLabel.text = NSString(format: "%.0f°", colorModel.hue) as String
     }
   }
   
@@ -23,6 +27,7 @@ class ViewController: UIViewController {
     if let slider = sender as? UISlider {
       colorModel.saturation = slider.value
       colorView.backgroundColor = colorModel.color
+      saturationLabel.text = NSString(format: "%.0f%%", colorModel.saturation) as String
     }
   }
   
@@ -30,6 +35,7 @@ class ViewController: UIViewController {
     if let slider = sender as? UISlider {
       colorModel.brightness = slider.value
       colorView.backgroundColor = colorModel.color
+      brightnessLabel.text = NSString(format: "%.0f%%", colorModel.brightness) as String
     }
   }
 
