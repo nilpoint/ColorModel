@@ -14,28 +14,26 @@ class ViewController: UIViewController {
   @IBOutlet var hueLabel: UILabel!
   @IBOutlet var saturationLabel: UILabel!
   @IBOutlet var brightnessLabel: UILabel!
+  @IBOutlet var webLabel: UILabel!
   
   @IBAction func changeHue(sender: AnyObject) {
     if let slider = sender as? UISlider {
       colorModel.hue = slider.value
-      colorView.backgroundColor = colorModel.color
-      hueLabel.text = NSString(format: "%.0f°", colorModel.hue) as String
+      updateColor()
     }
   }
   
   @IBAction func changeSaturation(sender: AnyObject) {
     if let slider = sender as? UISlider {
       colorModel.saturation = slider.value
-      colorView.backgroundColor = colorModel.color
-      saturationLabel.text = NSString(format: "%.0f%%", colorModel.saturation) as String
+      updateColor()
     }
   }
   
   @IBAction func changeBrightness(sender: AnyObject) {
     if let slider = sender as? UISlider {
       colorModel.brightness = slider.value
-      colorView.backgroundColor = colorModel.color
-      brightnessLabel.text = NSString(format: "%.0f%%", colorModel.brightness) as String
+      updateColor()
     }
   }
 
@@ -49,6 +47,22 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  func updateColor() {
+    let color = colorModel.color
+    
+    colorView.backgroundColor = color
+    
+    hueLabel.text = "\(Int(colorModel.hue))°"
+    saturationLabel.text = "\(Int(colorModel.saturation))%"
+    brightnessLabel.text = "\(Int(colorModel.brightness))%"
+    
+    var red: CGFloat = 0.0
+    var green: CGFloat = 0.0
+    var blue: CGFloat = 0.0
+    var alpha: CGFloat = 0.0
+    color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+    webLabel.text = NSString(format: "#%02X%02X%02X", CInt(red*255), CInt(green*255), CInt(blue*255)) as String
+  }
 
 }
 
