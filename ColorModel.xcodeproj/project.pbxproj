@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52D4377C1B9D605B00FBF0EC /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D4377B1B9D605B00FBF0EC /* ColorView.swift */; };
 		52E98EC21B984291008108C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E98EC11B984291008108C0 /* AppDelegate.swift */; };
 		52E98EC41B984291008108C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E98EC31B984291008108C0 /* ViewController.swift */; };
 		52E98EC71B984291008108C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E98EC51B984291008108C0 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52D4377B1B9D605B00FBF0EC /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		52E98EBC1B984291008108C0 /* ColorModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E98EC01B984291008108C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52E98EC11B984291008108C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				52E98EC11B984291008108C0 /* AppDelegate.swift */,
 				52E98EC31B984291008108C0 /* ViewController.swift */,
+				52D4377B1B9D605B00FBF0EC /* ColorView.swift */,
 				52E98EE11B984373008108C0 /* Color.swift */,
 				52E98EC51B984291008108C0 /* Main.storyboard */,
 				52E98EC81B984291008108C0 /* Images.xcassets */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D4377C1B9D605B00FBF0EC /* ColorView.swift in Sources */,
 				52E98EC41B984291008108C0 /* ViewController.swift in Sources */,
 				52E98EC21B984291008108C0 /* AppDelegate.swift in Sources */,
 				52E98EE21B984373008108C0 /* Color.swift in Sources */,
@@ -413,6 +417,7 @@
 				52E98EDD1B984291008108C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52E98EDE1B984291008108C0 /* Build configuration list for PBXNativeTarget "ColorModelTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				52E98EE01B984291008108C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
   var colorModel = Color()
-  @IBOutlet var colorView: UIView!
+  
+  @IBOutlet var colorView: ColorView!
   @IBOutlet var hueLabel: UILabel!
   @IBOutlet var saturationLabel: UILabel!
   @IBOutlet var brightnessLabel: UILabel!
@@ -39,7 +40,8 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    colorView.colorModel = colorModel
   }
 
   override func didReceiveMemoryWarning() {
@@ -48,9 +50,9 @@ class ViewController: UIViewController {
   }
 
   func updateColor() {
-    let color = colorModel.color
+    colorView.setNeedsDisplay()
     
-    colorView.backgroundColor = color
+    let color = colorModel.color
     
     hueLabel.text = "\(Int(colorModel.hue))°"
     saturationLabel.text = "\(Int(colorModel.saturation))%"
