@@ -55,4 +55,31 @@ class ColorView : UIView
     }
   }
   
+  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    changeColorTo(touch: touches.first as? UITouch)
+  }
+  
+  override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    changeColorTo(touch: touches.first as? UITouch)
+  }
+  
+  override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    changeColorTo(touch: touches.first as? UITouch)
+  }
+  
+  func changeColorTo(# touch:UITouch?) {
+    if let contact = touch {
+      changeColorTo(point: contact.locationInView(self))
+    }
+  }
+  
+  func changeColorTo(# point: CGPoint) {
+    if let color = colorModel {
+      let bounds = self.bounds
+      if bounds.contains(point) {
+        color.hue = Float((point.x-bounds.minX)/bounds.width*360)
+        color.saturation = Float((point.y-bounds.minY)/bounds.height*100)
+      }
+    }
+  }
 }

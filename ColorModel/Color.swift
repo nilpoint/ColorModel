@@ -16,4 +16,8 @@ class Color: NSObject {
   var color: UIColor {
     return UIColor(hue: CGFloat(hue/360), saturation: CGFloat(saturation/100), brightness: CGFloat(brightness/100), alpha: 1.0)
   }
+  
+  class func keyPathsForValuesAffectingColor() -> NSSet {
+    return NSSet(array: ["hue", "saturation", "brightness"])
+  }
 }

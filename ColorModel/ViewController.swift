@@ -16,6 +16,9 @@ class ViewController: UIViewController {
   @IBOutlet var saturationLabel: UILabel!
   @IBOutlet var brightnessLabel: UILabel!
   @IBOutlet var webLabel: UILabel!
+  @IBOutlet var hueSlider: UISlider!
+  @IBOutlet var saturationSlider: UISlider!
+  @IBOutlet var brightnessSlider: UISlider!
   
   @IBAction func changeHue(sender: AnyObject) {
     if let slider = sender as? UISlider {
@@ -44,6 +47,10 @@ class ViewController: UIViewController {
     colorModel.addObserver(self, forKeyPath: "color", options: .allZeros, context: nil)
     
     colorView.colorModel = colorModel
+    
+    colorModel.hue = 60
+    colorModel.saturation = 50
+    colorModel.brightness = 100
   }
 
   override func didReceiveMemoryWarning() {
@@ -55,12 +62,15 @@ class ViewController: UIViewController {
     switch keyPath {
       case "hue":
         hueLabel.text = "\(Int(colorModel.hue))°"
+        hueSlider.value = colorModel.hue
         break;
       case "saturation":
         saturationLabel.text = "\(Int(colorModel.saturation))%"
+        saturationSlider.value = colorModel.saturation
         break;
       case "brightness":
         brightnessLabel.text = "\(Int(colorModel.brightness))%"
+        brightnessSlider.value = colorModel.brightness
         break;
       case "color":
         colorView.setNeedsDisplay()
