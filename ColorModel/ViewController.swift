@@ -20,26 +20,28 @@ class ViewController: UIViewController {
   @IBAction func changeHue(sender: AnyObject) {
     if let slider = sender as? UISlider {
       colorModel.hue = slider.value
-      updateColor()
     }
   }
   
   @IBAction func changeSaturation(sender: AnyObject) {
     if let slider = sender as? UISlider {
       colorModel.saturation = slider.value
-      updateColor()
     }
   }
   
   @IBAction func changeBrightness(sender: AnyObject) {
     if let slider = sender as? UISlider {
-      colorModel.brightness = slider.value
-      updateColor()
+      colorModel.brightness = slider.value      
     }
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    colorModel.addObserver(self, forKeyPath: "hue", options: .allZeros, context: nil)
+    colorModel.addObserver(self, forKeyPath: "saturation", options: .allZeros, context: nil)
+    colorModel.addObserver(self, forKeyPath: "brightness", options: .allZeros, context: nil)
+    colorModel.addObserver(self, forKeyPath: "color", options: .allZeros, context: nil)
     
     colorView.colorModel = colorModel
   }
@@ -49,22 +51,29 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
-  func updateColor() {
-    colorView.setNeedsDisplay()
-    
-    let color = colorModel.color
-    
-    hueLabel.text = "\(Int(colorModel.hue))°"
-    saturationLabel.text = "\(Int(colorModel.saturation))%"
-    brightnessLabel.text = "\(Int(colorModel.brightness))%"
-    
-    var red: CGFloat = 0.0
-    var green: CGFloat = 0.0
-    var blue: CGFloat = 0.0
-    var alpha: CGFloat = 0.0
-    color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-    webLabel.text = NSString(format: "#%02X%02X%02X", CInt(red*255), CInt(green*255), CInt(blue*255)) as String
+  override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+    switch keyPath {
+      case "hue":
+        hueLabel.text = "\(Int(colorModel.hue))°"
+        break;
+      case "saturation":
+        saturationLabel.text = "\(Int(colorModel.saturation))%"
+        break;
+      case "brightness":
+        brightnessLabel.text = "\(Int(colorModel.brightness))%"
+        break;
+      case "color":
+        colorView.setNeedsDisplay()
+        var red: CGFloat = 0.0
+        var green: CGFloat = 0.0
+        var blue: CGFloat = 0.0
+        var alpha: CGFloat = 0.0
+        colorModel.color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        webLabel.text = NSString(format: "#%02X%02X%02X", CInt(red*255), CInt(green*255), CInt(blue*255)) as String
+        break;
+    default:
+      break;
+    }
   }
-
 }
 
